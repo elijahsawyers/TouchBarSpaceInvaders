@@ -32,6 +32,8 @@ struct StarryBackgroundView: View {
 
     var body: some View {
         ZStack {
+            Rectangle()
+                .foregroundColor(backgroundColor)
             ForEach(StarryBackgroundView.starRange) { index in
                 StarView()
                     .position(starPositions[index])
@@ -65,6 +67,7 @@ struct StarryBackgroundView: View {
     private static let timerInterval: Double = 1.0
     private let starAnimation: Animation = .linear(duration: StarryBackgroundView.timerInterval)
     private let offsetStride: CGFloat = 10.0
+    private let backgroundColor: Color = .black
 }
 
 struct StarView: View {

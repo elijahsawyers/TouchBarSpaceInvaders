@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
-import AppKit
 
 struct TouchBarSpaceInvadersView: View {
     var body: some View {
-        ZStack {
+        ZStack{
             StarryBackgroundView()
             SpaceshipView()
+            GameplayInformationView()
         }
         .frame(width: GameWindowWidth, height: GameWindowHeight)
     }

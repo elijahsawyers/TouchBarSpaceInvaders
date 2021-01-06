@@ -14,7 +14,7 @@ struct SpaceshipView: View {
     static let width: CGFloat = 75
     static let startingPosition = CGPoint(
         x: GameWindowWidth/2,
-        y: GameWindowHeight - SpaceshipView.height/2
+        y: GameWindowHeight - GameplayInformationHeight - SpaceshipView.height/2
     )
     
     // MARK: - Space Ship Structure

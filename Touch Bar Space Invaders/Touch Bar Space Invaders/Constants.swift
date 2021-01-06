@@ -10,4 +10,5 @@ import Foundation
 let TouchBarWidth: CGFloat = 685
 let TouchBarHeight: CGFloat = 30
 let GameWindowWidth: CGFloat = TouchBarWidth
-let GameWindowHeight: CGFloat = TouchBarWidth * 0.67
+let GameWindowHeight: CGFloat = TouchBarWidth * 0.8
+let GameplayInformationHeight: CGFloat = 40.0
