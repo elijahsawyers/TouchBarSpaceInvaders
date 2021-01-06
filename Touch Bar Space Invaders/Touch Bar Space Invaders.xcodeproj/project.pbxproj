@@ -7,33 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E78D49A625A52365003D98A2 /* TouchBarSpaceInvadersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D499325A52363003D98A2 /* TouchBarSpaceInvadersApp.swift */; };
 		E78D49A725A52365003D98A2 /* TouchBarSpaceInvadersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D499325A52363003D98A2 /* TouchBarSpaceInvadersApp.swift */; };
-		E78D49A825A52365003D98A2 /* TouchBarSpaceInvadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D499425A52363003D98A2 /* TouchBarSpaceInvadersView.swift */; };
 		E78D49A925A52365003D98A2 /* TouchBarSpaceInvadersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D499425A52363003D98A2 /* TouchBarSpaceInvadersView.swift */; };
-		E78D49AA25A52365003D98A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E78D499525A52365003D98A2 /* Assets.xcassets */; };
 		E78D49AB25A52365003D98A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E78D499525A52365003D98A2 /* Assets.xcassets */; };
+		E78D49C225A550D2003D98A2 /* DisplayedInTouchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49C125A550D2003D98A2 /* DisplayedInTouchBar.swift */; };
+		E78D49C525A55138003D98A2 /* SpaceshipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49C425A55138003D98A2 /* SpaceshipView.swift */; };
+		E78D49C825A5516C003D98A2 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49C725A5516C003D98A2 /* Constants.swift */; };
+		E78D49D725A55593003D98A2 /* SpaceInvaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49D625A55593003D98A2 /* SpaceInvaders.swift */; };
+		E78D49DC25A5561E003D98A2 /* Spaceship.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49DB25A5561E003D98A2 /* Spaceship.swift */; };
+		E78D49E025A55627003D98A2 /* Alien.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49DF25A55627003D98A2 /* Alien.swift */; };
+		E78D49E325A55655003D98A2 /* Barricade.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49E225A55655003D98A2 /* Barricade.swift */; };
+		E78D49E825A557C8003D98A2 /* StarryBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49E725A557C8003D98A2 /* StarryBackgroundView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E78D499325A52363003D98A2 /* TouchBarSpaceInvadersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarSpaceInvadersApp.swift; sourceTree = "<group>"; };
 		E78D499425A52363003D98A2 /* TouchBarSpaceInvadersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarSpaceInvadersView.swift; sourceTree = "<group>"; };
 		E78D499525A52365003D98A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E78D499A25A52365003D98A2 /* Touch Bar Space Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Touch Bar Space Invaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E78D499D25A52365003D98A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E78D49A225A52365003D98A2 /* Touch Bar Space Invaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Touch Bar Space Invaders.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78D49A425A52365003D98A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E78D49A525A52365003D98A2 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E78D49C125A550D2003D98A2 /* DisplayedInTouchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayedInTouchBar.swift; sourceTree = "<group>"; };
+		E78D49C425A55138003D98A2 /* SpaceshipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceshipView.swift; sourceTree = "<group>"; };
+		E78D49C725A5516C003D98A2 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E78D49D625A55593003D98A2 /* SpaceInvaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceInvaders.swift; sourceTree = "<group>"; };
+		E78D49DB25A5561E003D98A2 /* Spaceship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaceship.swift; sourceTree = "<group>"; };
+		E78D49DF25A55627003D98A2 /* Alien.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alien.swift; sourceTree = "<group>"; };
+		E78D49E225A55655003D98A2 /* Barricade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Barricade.swift; sourceTree = "<group>"; };
+		E78D49E725A557C8003D98A2 /* StarryBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarryBackgroundView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E78D499725A52365003D98A2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E78D499F25A52365003D98A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,69 +51,66 @@
 		E78D498D25A52363003D98A2 = {
 			isa = PBXGroup;
 			children = (
-				E78D499225A52363003D98A2 /* Shared */,
-				E78D499C25A52365003D98A2 /* iOS */,
-				E78D49A325A52365003D98A2 /* macOS */,
+				E78D499225A52363003D98A2 /* Touch Bar Space Invaders */,
 				E78D499B25A52365003D98A2 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E78D499225A52363003D98A2 /* Shared */ = {
+		E78D499225A52363003D98A2 /* Touch Bar Space Invaders */ = {
 			isa = PBXGroup;
 			children = (
+				E78D49C725A5516C003D98A2 /* Constants.swift */,
 				E78D499325A52363003D98A2 /* TouchBarSpaceInvadersApp.swift */,
-				E78D499425A52363003D98A2 /* TouchBarSpaceInvadersView.swift */,
+				E78D49D925A5559A003D98A2 /* Models */,
+				E78D49CA25A554C8003D98A2 /* Views */,
+				E78D49CC25A554CF003D98A2 /* Modifiers */,
 				E78D499525A52365003D98A2 /* Assets.xcassets */,
+				E78D49A425A52365003D98A2 /* Info.plist */,
+				E78D49A525A52365003D98A2 /* macOS.entitlements */,
 			);
-			path = Shared;
+			path = "Touch Bar Space Invaders";
 			sourceTree = "<group>";
 		};
 		E78D499B25A52365003D98A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E78D499A25A52365003D98A2 /* Touch Bar Space Invaders.app */,
 				E78D49A225A52365003D98A2 /* Touch Bar Space Invaders.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E78D499C25A52365003D98A2 /* iOS */ = {
+		E78D49CA25A554C8003D98A2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E78D499D25A52365003D98A2 /* Info.plist */,
+				E78D49C425A55138003D98A2 /* SpaceshipView.swift */,
+				E78D499425A52363003D98A2 /* TouchBarSpaceInvadersView.swift */,
+				E78D49E725A557C8003D98A2 /* StarryBackgroundView.swift */,
 			);
-			path = iOS;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		E78D49A325A52365003D98A2 /* macOS */ = {
+		E78D49CC25A554CF003D98A2 /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				E78D49A425A52365003D98A2 /* Info.plist */,
-				E78D49A525A52365003D98A2 /* macOS.entitlements */,
+				E78D49C125A550D2003D98A2 /* DisplayedInTouchBar.swift */,
 			);
-			path = macOS;
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		E78D49D925A5559A003D98A2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E78D49D625A55593003D98A2 /* SpaceInvaders.swift */,
+				E78D49DB25A5561E003D98A2 /* Spaceship.swift */,
+				E78D49DF25A55627003D98A2 /* Alien.swift */,
+				E78D49E225A55655003D98A2 /* Barricade.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E78D499925A52365003D98A2 /* Touch Bar Space Invaders (iOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E78D49AE25A52365003D98A2 /* Build configuration list for PBXNativeTarget "Touch Bar Space Invaders (iOS)" */;
-			buildPhases = (
-				E78D499625A52365003D98A2 /* Sources */,
-				E78D499725A52365003D98A2 /* Frameworks */,
-				E78D499825A52365003D98A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Touch Bar Space Invaders (iOS)";
-			productName = "Touch Bar Space Invaders (iOS)";
-			productReference = E78D499A25A52365003D98A2 /* Touch Bar Space Invaders.app */;
-			productType = "com.apple.product-type.application";
-		};
 		E78D49A125A52365003D98A2 /* Touch Bar Space Invaders (macOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E78D49B125A52365003D98A2 /* Build configuration list for PBXNativeTarget "Touch Bar Space Invaders (macOS)" */;
@@ -136,9 +137,6 @@
 				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
-					E78D499925A52365003D98A2 = {
-						CreatedOnToolsVersion = 12.3;
-					};
 					E78D49A125A52365003D98A2 = {
 						CreatedOnToolsVersion = 12.3;
 					};
@@ -157,21 +155,12 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E78D499925A52365003D98A2 /* Touch Bar Space Invaders (iOS) */,
 				E78D49A125A52365003D98A2 /* Touch Bar Space Invaders (macOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E78D499825A52365003D98A2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E78D49AA25A52365003D98A2 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E78D49A025A52365003D98A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -183,21 +172,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E78D499625A52365003D98A2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E78D49A825A52365003D98A2 /* TouchBarSpaceInvadersView.swift in Sources */,
-				E78D49A625A52365003D98A2 /* TouchBarSpaceInvadersApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E78D499E25A52365003D98A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E78D49D725A55593003D98A2 /* SpaceInvaders.swift in Sources */,
+				E78D49E325A55655003D98A2 /* Barricade.swift in Sources */,
+				E78D49C825A5516C003D98A2 /* Constants.swift in Sources */,
+				E78D49DC25A5561E003D98A2 /* Spaceship.swift in Sources */,
+				E78D49C225A550D2003D98A2 /* DisplayedInTouchBar.swift in Sources */,
+				E78D49E825A557C8003D98A2 /* StarryBackgroundView.swift in Sources */,
 				E78D49A925A52365003D98A2 /* TouchBarSpaceInvadersView.swift in Sources */,
+				E78D49C525A55138003D98A2 /* SpaceshipView.swift in Sources */,
 				E78D49A725A52365003D98A2 /* TouchBarSpaceInvadersApp.swift in Sources */,
+				E78D49E025A55627003D98A2 /* Alien.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,63 +303,18 @@
 			};
 			name = Release;
 		};
-		E78D49AF25A52365003D98A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YP79VTY7S5;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.elijahsawyers.Touch-Bar-Space-Invaders";
-				PRODUCT_NAME = "Touch Bar Space Invaders";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		E78D49B025A52365003D98A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YP79VTY7S5;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "me.elijahsawyers.Touch-Bar-Space-Invaders";
-				PRODUCT_NAME = "Touch Bar Space Invaders";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		E78D49B225A52365003D98A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Touch Bar Space Invaders/macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = YP79VTY7S5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_FILE = "Touch Bar Space Invaders/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -389,13 +332,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Touch Bar Space Invaders/macOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = YP79VTY7S5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_FILE = "Touch Bar Space Invaders/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -416,15 +359,6 @@
 			buildConfigurations = (
 				E78D49AC25A52365003D98A2 /* Debug */,
 				E78D49AD25A52365003D98A2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		E78D49AE25A52365003D98A2 /* Build configuration list for PBXNativeTarget "Touch Bar Space Invaders (iOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E78D49AF25A52365003D98A2 /* Debug */,
-				E78D49B025A52365003D98A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
