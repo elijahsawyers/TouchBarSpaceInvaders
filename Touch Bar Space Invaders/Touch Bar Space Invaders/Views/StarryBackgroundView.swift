@@ -50,7 +50,7 @@ struct StarryBackgroundView: View {
                     starIsUpdatingPosition[index] = true
                     starPositions[index] = CGPoint(
                         x: CGFloat.random(in: 0...GameWindowWidth),
-                        y: 0.0 - offset
+                        y: -offsetStride - offset
                     )
                 }
             }
@@ -62,9 +62,9 @@ struct StarryBackgroundView: View {
 
     private static let starCount: Int = 500
     private static let starRange: Range = 0..<StarryBackgroundView.starCount
-    private static let timerInterval: Double = 0.25
-    private let starAnimation: Animation = .linear(duration: 0.25)
-    private let offsetStride: CGFloat = 1.0
+    private static let timerInterval: Double = 1.0
+    private let starAnimation: Animation = .linear(duration: StarryBackgroundView.timerInterval)
+    private let offsetStride: CGFloat = 10.0
 }
 
 struct StarView: View {
