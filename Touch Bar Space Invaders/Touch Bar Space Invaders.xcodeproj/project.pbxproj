@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E748663D25A792BA00E90BA2 /* TouchBarSpaceInvaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748663C25A792BA00E90BA2 /* TouchBarSpaceInvaders.swift */; };
+		E748664425A7967700E90BA2 /* HeartsRemainingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748664325A7967700E90BA2 /* HeartsRemainingView.swift */; };
+		E748664725A7969300E90BA2 /* CurrentScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748664625A7969300E90BA2 /* CurrentScoreView.swift */; };
+		E748664B25A796E100E90BA2 /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748664A25A796E100E90BA2 /* BulletView.swift */; };
+		E748665025A7993B00E90BA2 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748664F25A7993B00E90BA2 /* Bullet.swift */; };
+		E748665425A79A2000E90BA2 /* BulletsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E748665325A79A2000E90BA2 /* BulletsView.swift */; };
 		E757181525A6CFE200A8E359 /* AlienView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E757181425A6CFE200A8E359 /* AlienView.swift */; };
 		E757181A25A6D3DD00A8E359 /* AlienSwarmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E757181925A6D3DD00A8E359 /* AlienSwarmView.swift */; };
 		E78D49A725A52365003D98A2 /* TouchBarSpaceInvadersApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D499325A52363003D98A2 /* TouchBarSpaceInvadersApp.swift */; };
@@ -25,6 +31,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E748663C25A792BA00E90BA2 /* TouchBarSpaceInvaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarSpaceInvaders.swift; sourceTree = "<group>"; };
+		E748664325A7967700E90BA2 /* HeartsRemainingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartsRemainingView.swift; sourceTree = "<group>"; };
+		E748664625A7969300E90BA2 /* CurrentScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentScoreView.swift; sourceTree = "<group>"; };
+		E748664A25A796E100E90BA2 /* BulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
+		E748664F25A7993B00E90BA2 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		E748665325A79A2000E90BA2 /* BulletsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletsView.swift; sourceTree = "<group>"; };
 		E757181425A6CFE200A8E359 /* AlienView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlienView.swift; sourceTree = "<group>"; };
 		E757181925A6D3DD00A8E359 /* AlienSwarmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlienSwarmView.swift; sourceTree = "<group>"; };
 		E78D499325A52363003D98A2 /* TouchBarSpaceInvadersApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchBarSpaceInvadersApp.swift; sourceTree = "<group>"; };
@@ -56,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E748664025A7930900E90BA2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E748663C25A792BA00E90BA2 /* TouchBarSpaceInvaders.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		E78D498D25A52363003D98A2 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +89,7 @@
 			children = (
 				E78D49C725A5516C003D98A2 /* Constants.swift */,
 				E78D499325A52363003D98A2 /* TouchBarSpaceInvadersApp.swift */,
+				E748664025A7930900E90BA2 /* ViewModels */,
 				E78D49D925A5559A003D98A2 /* Models */,
 				E78D49CA25A554C8003D98A2 /* Views */,
 				E78D49CC25A554CF003D98A2 /* Modifiers */,
@@ -92,7 +113,11 @@
 			children = (
 				E757181425A6CFE200A8E359 /* AlienView.swift */,
 				E757181925A6D3DD00A8E359 /* AlienSwarmView.swift */,
+				E748664A25A796E100E90BA2 /* BulletView.swift */,
+				E748665325A79A2000E90BA2 /* BulletsView.swift */,
+				E748664625A7969300E90BA2 /* CurrentScoreView.swift */,
 				E78D49EA25A65F60003D98A2 /* HeartView.swift */,
+				E748664325A7967700E90BA2 /* HeartsRemainingView.swift */,
 				E78D49EE25A663B6003D98A2 /* GameplayInformationView.swift */,
 				E78D49E725A557C8003D98A2 /* StarryBackgroundView.swift */,
 				E78D49C425A55138003D98A2 /* SpaceshipView.swift */,
@@ -112,10 +137,11 @@
 		E78D49D925A5559A003D98A2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E78D49D625A55593003D98A2 /* SpaceInvaders.swift */,
-				E78D49DB25A5561E003D98A2 /* Spaceship.swift */,
 				E78D49DF25A55627003D98A2 /* Alien.swift */,
 				E78D49E225A55655003D98A2 /* Barricade.swift */,
+				E748664F25A7993B00E90BA2 /* Bullet.swift */,
+				E78D49DB25A5561E003D98A2 /* Spaceship.swift */,
+				E78D49D625A55593003D98A2 /* SpaceInvaders.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E748664B25A796E100E90BA2 /* BulletView.swift in Sources */,
+				E748665025A7993B00E90BA2 /* Bullet.swift in Sources */,
+				E748664425A7967700E90BA2 /* HeartsRemainingView.swift in Sources */,
 				E78D49D725A55593003D98A2 /* SpaceInvaders.swift in Sources */,
 				E78D49E325A55655003D98A2 /* Barricade.swift in Sources */,
 				E78D49C825A5516C003D98A2 /* Constants.swift in Sources */,
@@ -197,8 +226,11 @@
 				E757181525A6CFE200A8E359 /* AlienView.swift in Sources */,
 				E78D49E825A557C8003D98A2 /* StarryBackgroundView.swift in Sources */,
 				E78D49A925A52365003D98A2 /* TouchBarSpaceInvadersView.swift in Sources */,
+				E748664725A7969300E90BA2 /* CurrentScoreView.swift in Sources */,
 				E78D49C525A55138003D98A2 /* SpaceshipView.swift in Sources */,
+				E748665425A79A2000E90BA2 /* BulletsView.swift in Sources */,
 				E757181A25A6D3DD00A8E359 /* AlienSwarmView.swift in Sources */,
+				E748663D25A792BA00E90BA2 /* TouchBarSpaceInvaders.swift in Sources */,
 				E78D49EB25A65F60003D98A2 /* HeartView.swift in Sources */,
 				E78D49A725A52365003D98A2 /* TouchBarSpaceInvadersApp.swift in Sources */,
 				E78D49E025A55627003D98A2 /* Alien.swift in Sources */,

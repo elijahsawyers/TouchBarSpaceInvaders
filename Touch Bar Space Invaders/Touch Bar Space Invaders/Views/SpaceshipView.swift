@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct SpaceshipView: View {
-    // MARK: - Type Properties
-    
-    static let height: CGFloat = 30
-    static let width: CGFloat = 75
-    static let startingPosition = CGPoint(
-        x: GameWindowWidth/2,
-        y: GameWindowHeight - GameplayInformationHeight - SpaceshipView.height/2
-    )
-    
-    // MARK: - Space Ship Structure
+    @EnvironmentObject private var game: TouchBarSpaceInvaders
+    @State var steadyStateOffset: CGFloat = 0.0
+    @GestureState private var gestureStateOffset: CGFloat = 0.0
+    private var offset: CGFloat {
+        steadyStateOffset + gestureStateOffset
+    }
 
     struct Structure: View {
         var body: some View {
@@ -35,8 +31,6 @@ struct SpaceshipView: View {
         }
     }
     
-    // MARK: - View Body
-
     var body: some View {
         ZStack {
             ZStack {
@@ -46,31 +40,35 @@ struct SpaceshipView: View {
                 Structure()
                     .offset(x: offset)
                     .gesture(shipDragGesture)
+                    .animation(spaceshipAnimation)
             }
                 .displayedInTouchBar()
             Structure()
-                .offset(x: offset)
-                .position(SpaceshipView.startingPosition)
+                .position(game.spaceshipPosition)
+                .animation(spaceshipAnimation)
         }
         .onExitCommand(perform: {
-            // Handle shooting.
+            game.shoot()
         })
     }
-    
+
     // MARK: - Gesture[s]
-    
-    @State var steadyStateOffset: CGFloat = 0.0
-    @GestureState private var gestureStateOffset: CGFloat = 0.0
-    private var offset: CGFloat {
-        steadyStateOffset + gestureStateOffset
-    }
+
     private var shipDragGesture: some Gesture {
         DragGesture()
             .updating($gestureStateOffset) { currentState, gestureState, _ in
+                game.spaceshipIsMoving = true
+                game.moveSpaceship(by: currentState.translation.width)
                 gestureState = currentState.translation.width
             }
             .onEnded { finalGestureState in
+                game.moveSpaceship(by: finalGestureState.translation.width)
                 steadyStateOffset += finalGestureState.translation.width
+                game.spaceshipIsMoving = false
             }
     }
+    
+    // MARK: - Drawing Constant[s]
+    
+    private let spaceshipAnimation: Animation = .linear(duration: 0.25)
 }

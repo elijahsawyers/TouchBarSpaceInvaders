@@ -12,6 +12,7 @@ struct TouchBarSpaceInvadersView: View {
         ZStack {
             StarryBackgroundView()
             AlienSwarmView()
+            BulletsView()
             SpaceshipView()
             GameplayInformationView()
         }

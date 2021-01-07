@@ -20,28 +20,14 @@ struct GameplayInformationView: View {
             Rectangle()
                 .frame(height: 1)
                 .position(x: GameWindowWidth / 2, y: GameWindowHeight - GameplayInformationHeight)
-            
+
             // Gamplay information.
             HStack {
-                // Hearts remaining.
-                HStack(spacing: 10) {
-                    HeartView()
-                        .frame(width: 25, height: 25)
-                    HeartView()
-                        .frame(width: 25, height: 25)
-                    HeartView()
-                        .frame(width: 25, height: 25)
-                }
-                    .padding(.horizontal)
-
+                HeartsRemainingView()
                 Spacer()
-                
-                // Current score.
-                Text("SCORE: 0")
-                    .padding(.horizontal)
-                    .font(.system(size: 24, design: .monospaced))
+                CurrentScoreView()
             }
-            .position(x: GameWindowWidth / 2, y: GameWindowHeight - GameplayInformationHeight / 2)
+                .position(x: GameWindowWidth / 2, y: GameWindowHeight - GameplayInformationHeight / 2)
         }
     }
 }

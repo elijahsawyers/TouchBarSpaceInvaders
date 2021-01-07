@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct TouchBarSpaceInvadersApp: App {
+    let game = TouchBarSpaceInvaders()
+
     var body: some Scene {
         WindowGroup {
             TouchBarSpaceInvadersView()
+                .environmentObject(game)
         }
     }
 }
