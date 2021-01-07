@@ -11,11 +11,10 @@ struct BulletView: View {
     var body: some View {
         Capsule()
             .foregroundColor(bulletColor)
-            .frame(width: bulletSize.width, height: bulletSize.height)
+            .frame(width: BulletSize.width, height: BulletSize.height)
     }
     
     // MARK: - Drawing Constant[s]
-    
-    private let bulletSize: CGSize = CGSize(width: 5, height: 25)
+
     private let bulletColor: Color = .red
 }

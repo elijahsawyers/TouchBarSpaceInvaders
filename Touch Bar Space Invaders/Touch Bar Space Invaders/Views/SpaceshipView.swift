@@ -70,5 +70,5 @@ struct SpaceshipView: View {
     
     // MARK: - Drawing Constant[s]
     
-    private let spaceshipAnimation: Animation = .linear(duration: 0.25)
+    private let spaceshipAnimation: Animation = .linear(duration: 0.10)
 }

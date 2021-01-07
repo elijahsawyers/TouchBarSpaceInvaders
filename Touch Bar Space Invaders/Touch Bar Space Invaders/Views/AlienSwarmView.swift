@@ -9,28 +9,23 @@ import SwiftUI
 import Combine
 
 struct AlienSwarmView: View {
-    @State var alienArmsDown: Bool = true
+    @EnvironmentObject private var game: TouchBarSpaceInvaders
 
     var body: some View {
-        VStack(spacing: alienRowSpacing) {
-            ForEach(0..<alienRowCount) { i in
-                HStack(spacing: alienColumnSpacing) {
-                    ForEach(0..<alienColumnCount) { j in
-                        AlienView(armsDown: alienArmsDown)
-                    }
-                }
+        ForEach(game.aliens) { alien in
+            if !alien.isDead {
+                AlienView(armsDown: true)
+                    .position(x: CGFloat(alien.x), y: CGFloat(alien.y))
+                    .animation(alienAnimation)
+            } else {
+                EmptyView()
+                    .frame(width: AlienSize, height: AlienSize)
+                    .position(x: CGFloat(alien.x), y: CGFloat(alien.y))
             }
         }
-        .position(
-            x: GameWindowWidth / 2,
-            y: 0 + ((CGFloat(alienRowCount) * AlienSize) + (CGFloat(alienRowCount) * alienRowSpacing)) / 2
-        )
     }
-
+    
     // MARK: - Drawing Constant[s]
-
-    private let alienRowCount: Int = 5
-    private let alienColumnCount: Int = 8
-    private let alienRowSpacing: CGFloat = 10
-    private let alienColumnSpacing: CGFloat = 15
+    
+    private let alienAnimation: Animation = .linear(duration: 0.10)
 }

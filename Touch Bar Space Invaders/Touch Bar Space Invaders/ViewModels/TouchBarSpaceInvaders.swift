@@ -62,4 +62,8 @@ class TouchBarSpaceInvaders: ObservableObject {
             game.spaceship.isMoving = newValue
         }
     }
+    
+    var aliens: [Alien] {
+        game.aliens
+    }
 }
