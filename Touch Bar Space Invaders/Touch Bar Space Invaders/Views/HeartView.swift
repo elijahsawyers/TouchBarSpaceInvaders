@@ -1,5 +1,5 @@
 //
-//  Heart.swift
+//  HeartView.swift
 //  Touch Bar Space Invaders (macOS)
 //
 //  Created by Elijah Sawyers on 1/6/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Heart: View {
+struct HeartView: View {
     var body: some View {
         ZStack {
             GeometryReader { geometry in
@@ -25,6 +25,10 @@ struct Heart: View {
                     .offset(x: geometry.size.width/4, y: geometry.size.height/3)
             }
         }
-        .foregroundColor(.red)
+        .foregroundColor(color)
     }
+    
+    // MARK: - Drawing Constant[s]
+    
+    private let color: Color = .red
 }

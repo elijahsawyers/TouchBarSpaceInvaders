@@ -9,8 +9,9 @@ import SwiftUI
 
 struct TouchBarSpaceInvadersView: View {
     var body: some View {
-        ZStack{
+        ZStack {
             StarryBackgroundView()
+            AlienSwarmView()
             SpaceshipView()
             GameplayInformationView()
         }

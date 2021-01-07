@@ -12,3 +12,4 @@ let TouchBarHeight: CGFloat = 30
 let GameWindowWidth: CGFloat = TouchBarWidth
 let GameWindowHeight: CGFloat = TouchBarWidth * 0.8
 let GameplayInformationHeight: CGFloat = 40.0
+let AlienSize: CGFloat = 50.0
