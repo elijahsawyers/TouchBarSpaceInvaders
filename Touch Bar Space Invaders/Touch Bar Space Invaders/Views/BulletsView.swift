@@ -11,10 +11,17 @@ struct BulletsView: View {
     @EnvironmentObject private var game: TouchBarSpaceInvaders
 
     var body: some View {
-        ForEach(game.spaceshipBullets) { bullet in
-            BulletView()
-                .position(x: CGFloat(bullet.x), y: CGFloat(bullet.y))
-                .animation(bulletAnimation)
+        ZStack {
+            ForEach(game.alienBullets) { bullet in
+                BulletView()
+                    .position(x: CGFloat(bullet.x), y: CGFloat(bullet.y))
+                    .animation(bulletAnimation)
+            }
+            ForEach(game.spaceshipBullets) { bullet in
+                BulletView()
+                    .position(x: CGFloat(bullet.x), y: CGFloat(bullet.y))
+                    .animation(bulletAnimation)
+            }
         }
     }
     

@@ -31,12 +31,29 @@ struct Spaceship {
        return []
     }()
     
+    /// How many interations it's been since the spaceship has shot a bullet.
+    ///
+    /// - Note: Only allowing spaceship to shoot every half-second.
+    var timeOfLastBullet: Date?
+
+    /// Whether or not enough time has passed for the spaceship to shoot.
+    var canShootBullet: Bool {
+        if let timeOfLastBullet = timeOfLastBullet {
+            let timePassed = Date().timeIntervalSince(timeOfLastBullet)
+            return timePassed >= 0.5
+        }
+        return true
+    }
+    
     /// Shoot a bullet - appends a new bullet to the bullets array.
     mutating func shoot() {
-        bullets.append(Bullet(
-            x: x,
-            y: y - Double(SpaceshipHeight)
-        ))
+        if canShootBullet {
+            bullets.append(Bullet(
+                x: x,
+                y: y - Double(SpaceshipHeight)
+            ))
+            timeOfLastBullet = Date()
+        }
     }
     
     /// Moves the spaceship by `dx`.
