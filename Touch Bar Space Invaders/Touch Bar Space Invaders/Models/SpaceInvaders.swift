@@ -8,19 +8,11 @@
 import Foundation
 
 struct SpaceInvaders {
-    /// How many aliens the game starts with.
-    static let alienCount = 25
-    
     /// How much to increase score on alien death.
     static let scoreIncrease = 10
     
     /// Current score of the game.
     private(set) var score = 0
-
-    /// Amount of lives (a.k.a. hearts) remaining.
-    ///
-    /// - Note: The game starts out with three lives.
-    private(set) var heartsRemaining = 3
     
     /// Barricades in gameplay.
     private(set) var barricades: [Barricade] = {

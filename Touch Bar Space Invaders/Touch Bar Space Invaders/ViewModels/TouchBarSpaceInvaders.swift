@@ -43,7 +43,7 @@ class TouchBarSpaceInvaders: ObservableObject {
     }
     
     var heartsRemaining: Int {
-        game.heartsRemaining
+        game.spaceship.heartsRemaining
     }
     
     var spaceshipBullets: [Bullet] {

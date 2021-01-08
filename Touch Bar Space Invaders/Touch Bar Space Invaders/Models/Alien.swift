@@ -8,6 +8,9 @@
 import Foundation
 
 struct Alien: Identifiable {
+    /// How many aliens the game starts with.
+    static let alienCount = 25
+
     /// How much to move the alien by (horizontally) on each iteration of the game loop.
     static let horizontalStride: Double = 1.0
     
