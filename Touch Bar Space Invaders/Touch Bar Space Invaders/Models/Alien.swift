@@ -19,9 +19,6 @@ struct Alien: Identifiable {
     
     /// Whether or not the aliens are moving to the right.
     static var areMovingRight: Bool = true
-    
-    /// How much the alien swarm has been offset.
-    static var swarmOffset: Double = 0.0
 
     /// How many interations it's been since an alien has shot a bullet.
     ///

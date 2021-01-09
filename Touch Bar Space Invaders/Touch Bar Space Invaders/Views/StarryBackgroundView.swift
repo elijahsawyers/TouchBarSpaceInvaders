@@ -9,11 +9,6 @@ import SwiftUI
 import Combine
 
 struct StarryBackgroundView: View {
-    @State private var offset: CGFloat = 0.0
-    @State private var starIsUpdatingPosition = [Bool](
-        repeating: false,
-        count: StarryBackgroundView.starCount
-    )
     @State private var starPositions: [CGPoint] = {
         var starPositions = [CGPoint]()
         for _ in StarryBackgroundView.starRange {
@@ -24,11 +19,6 @@ struct StarryBackgroundView: View {
         }
         return starPositions
     }()
-    var timer = Timer.publish(
-        every: StarryBackgroundView.timerInterval,
-        on: .main,
-        in: .common
-    ).autoconnect()
 
     var body: some View {
         ZStack {
@@ -37,36 +27,14 @@ struct StarryBackgroundView: View {
             ForEach(StarryBackgroundView.starRange) { index in
                 StarView()
                     .position(starPositions[index])
-                    .offset(y: offset)
-                    .animation(
-                        starIsUpdatingPosition[index] ?
-                            .none :
-                            starAnimation
-                    )
             }
         }
-        .onReceive(timer, perform: { _ in
-            starIsUpdatingPosition = [Bool](repeating: false, count: StarryBackgroundView.starCount)
-            starPositions.enumerated().forEach { index, position in
-                if position.y + offset > GameWindowHeight {
-                    starIsUpdatingPosition[index] = true
-                    starPositions[index] = CGPoint(
-                        x: CGFloat.random(in: 0...GameWindowWidth),
-                        y: -offsetStride - offset
-                    )
-                }
-            }
-            offset += offsetStride
-        })
     }
     
     // MARK: - Drawing Constant[s]
 
     private static let starCount: Int = 500
     private static let starRange: Range = 0..<StarryBackgroundView.starCount
-    private static let timerInterval: Double = 1.0
-    private let starAnimation: Animation = .linear(duration: StarryBackgroundView.timerInterval)
-    private let offsetStride: CGFloat = 10.0
     private let backgroundColor: Color = .black
 }
 

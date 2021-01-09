@@ -35,11 +35,23 @@ class TouchBarSpaceInvaders: ObservableObject {
     func moveSpaceship(by dx: CGFloat) {
         game.spaceship.move(by: Double(dx))
     }
+    
+    func newGame() {
+        gameTimer?.invalidate()
+        game = SpaceInvaders()
+        gameTimer = Timer.scheduledTimer(withTimeInterval: gameTimerInterval, repeats: true) { _ in
+            self.game.loop()
+        }
+    }
 
     // MARK: - Model Accessor[s]
     
     var score: Int {
         game.score
+    }
+    
+    var gameOver: Bool {
+        game.gameOver
     }
     
     var heartsRemaining: Int {

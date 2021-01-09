@@ -29,7 +29,7 @@ struct Spaceship {
     /// Amount of lives (a.k.a. hearts) remaining.
     ///
     /// - Note: The game starts out with three lives.
-    private(set) var heartsRemaining = 3
+    var heartsRemaining = 3
 
     /// Bullets in gameplay.
     var bullets: [Bullet] = {

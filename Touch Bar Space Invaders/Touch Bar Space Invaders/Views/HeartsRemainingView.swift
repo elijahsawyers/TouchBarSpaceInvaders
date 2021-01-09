@@ -12,7 +12,7 @@ struct HeartsRemainingView: View {
 
     var body: some View {
         HStack(spacing: heartSpacing) {
-            ForEach(0..<game.heartsRemaining) { _ in
+            ForEach(0..<game.heartsRemaining, id: \.self) { _ in
                 HeartView()
                     .frame(width: heartSize, height: heartSize)
             }
