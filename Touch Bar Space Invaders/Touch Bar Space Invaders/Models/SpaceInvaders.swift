@@ -15,7 +15,16 @@ struct SpaceInvaders {
     private(set) var score = 0
     
     /// Whether or not all spaceship lives have been used up.
-    private(set) var gameOver = false
+    private(set) var gameOver = false {
+        didSet {
+            if gameOver {
+                gameInMotion = false
+            }
+        }
+    }
+    
+    /// Whether or not the game is currently being played.
+    private(set) var gameInMotion = false
     
     /// Barricades in gameplay.
     private(set) var barricades: [Barricade] = {
@@ -68,6 +77,8 @@ struct SpaceInvaders {
     
     /// Runs the next iteration of  the game loop.
     mutating func loop() {
+        gameInMotion = true
+        
         // Update each bullet's position.
         spaceship.bullets.enumerated().forEach { index, _ in
             spaceship.bullets[index].move(by: Bullet.stride)

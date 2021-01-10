@@ -9,21 +9,16 @@ import SwiftUI
 import Combine
 
 class TouchBarSpaceInvaders: ObservableObject {
-    @Published var game: SpaceInvaders
-    var gameTimer: Timer?
+    static let highScoreUserDefaultsKey = "TouchBarSpaceInvaders.HighScore"
+    @Published var game = SpaceInvaders()
+    var highScore: Int
     let gameTimerInterval: Double = 0.025
+    var gameTimer: Timer?
 
     // MARK: - Initializer[s]
-    
-    init(game: SpaceInvaders) {
-        self.game = game
-    }
 
-    convenience init() {
-        self.init(game: SpaceInvaders())
-        gameTimer = Timer.scheduledTimer(withTimeInterval: gameTimerInterval, repeats: true) { _ in
-            self.game.loop()
-        }
+    init() {
+        highScore = Int(UserDefaults.standard.double(forKey: TouchBarSpaceInvaders.highScoreUserDefaultsKey))
     }
     
     // MARK: - Intent[s]
@@ -43,6 +38,12 @@ class TouchBarSpaceInvaders: ObservableObject {
             self.game.loop()
         }
     }
+    
+    func updateHighScore(to score: Int) {
+        if score > highScore {
+            UserDefaults.standard.setValue(score, forKey: TouchBarSpaceInvaders.highScoreUserDefaultsKey)
+        }
+    }
 
     // MARK: - Model Accessor[s]
     
@@ -52,6 +53,10 @@ class TouchBarSpaceInvaders: ObservableObject {
     
     var gameOver: Bool {
         game.gameOver
+    }
+    
+    var gameInMotion: Bool {
+        game.gameInMotion
     }
     
     var heartsRemaining: Int {
