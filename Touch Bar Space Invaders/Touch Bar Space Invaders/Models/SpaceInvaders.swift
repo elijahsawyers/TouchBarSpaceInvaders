@@ -74,8 +74,14 @@ struct SpaceInvaders {
         gameInMotion = true
         
         // Update each bullet's position.
+        if let bullet = spaceship.bullets.first, bullet.y < 0 - Double(BulletSize.height) {
+            spaceship.bullets.removeFirst()
+        }
         spaceship.bullets.enumerated().forEach { index, _ in
             spaceship.bullets[index].move(by: Bullet.stride)
+        }
+        if let bullet = Alien.bullets.first, bullet.y < 0 - Double(BulletSize.height) {
+            Alien.bullets.removeFirst()
         }
         Alien.bullets.enumerated().forEach { index, _ in
             Alien.bullets[index].move(by: -Bullet.stride)

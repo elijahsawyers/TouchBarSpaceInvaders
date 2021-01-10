@@ -32,9 +32,7 @@ struct Spaceship {
     var heartsRemaining = 3
 
     /// Bullets in gameplay.
-    var bullets: [Bullet] = {
-       return []
-    }()
+    var bullets: [Bullet] = []
     
     /// How many interations it's been since the spaceship has shot a bullet.
     ///
