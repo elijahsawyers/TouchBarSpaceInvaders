@@ -36,6 +36,25 @@ struct Alien: Identifiable {
     
     /// Array of bullets shot by aliens.
     static var bullets: [Bullet] = []
+    
+    /// Builds a spawn of aliens.
+    static func buildAlienSpawn() -> [Alien] {
+        var aliens = [Alien]()
+        let alienSpacing: Double = 75.0
+        let offsetX = (Double(GameWindowWidth) - (4 * Double(AlienSize)) - (4 * alienSpacing)) / 2.0
+        let offsetY = Double(AlienSize) / 2.0
+
+        for i in 0..<5 {
+            for j in 0..<5 {
+                aliens.append(Alien(
+                    x: (Double(AlienSize) + alienSpacing) * Double(j) + offsetX,
+                    y: Double(AlienSize) * Double(i) + offsetY
+                ))
+            }
+        }
+        
+        return aliens
+    }
 
     /// Unique identifier.
     let id = UUID()

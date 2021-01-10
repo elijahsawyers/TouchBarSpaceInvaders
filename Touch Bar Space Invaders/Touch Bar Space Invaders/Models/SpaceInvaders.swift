@@ -32,23 +32,17 @@ struct SpaceInvaders {
     }()
 
     /// Aliens in gameplay.
-    var aliens: [Alien] = {
-        var aliens = [Alien]()
-        let alienSpacing: Double = 75.0
-        let offsetX = (Double(GameWindowWidth) - (4 * Double(AlienSize)) - (4 * alienSpacing)) / 2.0
-        let offsetY = Double(AlienSize) / 2.0
+    var aliens: [Alien] = Alien.buildAlienSpawn()
 
-        for i in 0..<5 {
-            for j in 0..<5 {
-                aliens.append(Alien(
-                    x: (Double(AlienSize) + alienSpacing) * Double(j) + offsetX,
-                    y: Double(AlienSize) * Double(i) + offsetY
-                ))
+    /// Whether or not all aliens have been killed.
+    var allAliensDead: Bool {
+        for alien in aliens {
+            if !alien.isDead {
+                return false
             }
         }
-        
-        return aliens
-    }()
+        return true
+    }
     
     /// Indices of the aliens in the front.
     var indicesOfAliensInFront: [Int] {
@@ -136,6 +130,12 @@ struct SpaceInvaders {
                     gameOver = true
                 }
             }
+        }
+        
+        // Respawn the aliens, if needed.
+        if allAliensDead {
+            swarmOffset = 0.0
+            aliens = Alien.buildAlienSpawn()
         }
     }
     
