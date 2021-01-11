@@ -48,7 +48,9 @@ struct SpaceshipView: View {
                 .animation(spaceshipAnimation)
         }
         .onExitCommand(perform: {
-            game.shoot()
+            if game.gameInMotion {
+                game.shoot()
+            }
         })
     }
 

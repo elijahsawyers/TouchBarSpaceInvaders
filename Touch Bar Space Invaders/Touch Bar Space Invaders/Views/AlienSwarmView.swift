@@ -10,17 +10,22 @@ import Combine
 
 struct AlienSwarmView: View {
     @EnvironmentObject private var game: TouchBarSpaceInvaders
+    @State private var aliensShowing = false
 
     var body: some View {
-        ForEach(game.aliens) { alien in
-            if !alien.isDead {
-                AlienView(armsDown: true)
-                    .position(x: CGFloat(alien.x), y: CGFloat(alien.y))
-                    .animation(alienAnimation)
-            } else {
-                EmptyView()
-                    .frame(width: AlienSize, height: AlienSize)
-                    .position(x: CGFloat(alien.x), y: CGFloat(alien.y))
+        ZStack {
+            ForEach(game.aliens) { alien in
+                if !alien.isDead && aliensShowing {
+                    AlienView(armsDown: true)
+                        .position(x: CGFloat(alien.x), y: CGFloat(alien.y))
+                        .animation(alienAnimation)
+                        .transition(.opacity)
+                }
+            }
+        }
+        .onAppear {
+            withAnimation(Animation.easeIn(duration: 1.0)) {
+                aliensShowing = true
             }
         }
     }

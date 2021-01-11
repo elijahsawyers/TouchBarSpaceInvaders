@@ -9,10 +9,26 @@ import SwiftUI
 
 struct LevelView: View {
     @EnvironmentObject var game: TouchBarSpaceInvaders
+    @State private var labelIsShowing = false
 
     var body: some View {
-        Text("LEVEL \(game.level)")
-            .font(font)
+        ZStack {
+            if labelIsShowing {
+                Text("LEVEL \(game.level)")
+                    .font(font)
+                    .transition(.opacity)
+            }
+        }
+        .onAppear {
+            withAnimation(Animation.easeIn(duration: 1.0)) {
+                labelIsShowing = true
+            }
+        }
+        .onDisappear {
+            withAnimation(Animation.easeIn(duration: 1.0)) {
+                labelIsShowing = false
+            }
+        }
     }
     
     // MARK: - Drawing Constant[s]

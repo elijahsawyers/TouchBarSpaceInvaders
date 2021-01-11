@@ -9,7 +9,7 @@ import Foundation
 
 struct Alien: Identifiable {
     /// How many aliens the game starts with.
-    static let alienCount = 25
+    static let alienCount = 15
 
     /// How much to move the alien by (horizontally) on each iteration of the game loop.
     static let horizontalStride: Double = 1.0
@@ -23,7 +23,7 @@ struct Alien: Identifiable {
     /// How many interations it's been since an alien has shot a bullet.
     ///
     /// - Note: Only allowing aliens to shoot every second.
-    static var timeOfLastBullet: Date?
+    static var timeOfLastBullet: Date? = Date().advanced(by: TimeInterval(0.25))
 
     /// Whether or not enough time has passed for an alien to shoot.
     static var canShootBullet: Bool {
@@ -40,15 +40,16 @@ struct Alien: Identifiable {
     /// Builds a spawn of aliens.
     static func buildAlienSpawn() -> [Alien] {
         var aliens = [Alien]()
-        let alienSpacing: Double = 75.0
-        let offsetX = (Double(GameWindowWidth) - (4 * Double(AlienSize)) - (4 * alienSpacing)) / 2.0
+        let horizontalAlienSpacing: Double = 75.0
+        let verticalAlienSpacing: Double = 25.0
+        let offsetX = (Double(GameWindowWidth) - (4 * Double(AlienSize)) - (4 * horizontalAlienSpacing)) / 2.0
         let offsetY = Double(AlienSize) / 2.0
 
-        for i in 0..<5 {
+        for i in 0..<3 {
             for j in 0..<5 {
                 aliens.append(Alien(
-                    x: (Double(AlienSize) + alienSpacing) * Double(j) + offsetX,
-                    y: Double(AlienSize) * Double(i) + offsetY
+                    x: (Double(AlienSize) + horizontalAlienSpacing) * Double(j) + offsetX,
+                    y: (Double(AlienSize) + verticalAlienSpacing) * Double(i) + offsetY
                 ))
             }
         }

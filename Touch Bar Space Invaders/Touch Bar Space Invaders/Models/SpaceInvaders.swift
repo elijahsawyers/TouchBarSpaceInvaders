@@ -54,8 +54,8 @@ struct SpaceInvaders {
     var indicesOfAliensInFront: [Int] {
         var indicesOfAliensInFront = [Int]()
         
-        columnLoop: for i in [20, 21, 22, 23, 24] {
-            for j in 0..<5 {
+        columnLoop: for i in [10, 11, 12, 13, 14] {
+            for j in 0..<3 {
                 if !aliens[i - (5 * j)].isDead {
                     indicesOfAliensInFront.append(i - (5 * j))
                     continue columnLoop
@@ -150,13 +150,16 @@ struct SpaceInvaders {
                 }
             }
             
-            // Respawn the aliens, if needed.
+            // Respawn the aliens, and progress the level.
             if allAliensDead {
                 swarmOffset = 0.0
                 aliens = Alien.buildAlienSpawn()
                 level += 1
                 gameInMotion = false
                 self.levelStartTime = Date()
+                Alien.timeOfLastBullet = Date().advanced(by: TimeInterval(3.25))
+                Alien.bullets = []
+                spaceship.bullets = []
             }
         }
     }
