@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct TouchBarSpaceInvadersApp: App {
-    let game = TouchBarSpaceInvaders()
+    @StateObject var game = TouchBarSpaceInvaders()
 
     var body: some Scene {
         WindowGroup {

@@ -13,11 +13,15 @@ struct TouchBarSpaceInvadersView: View {
     var body: some View {
         ZStack {
             StarryBackgroundView()
-            if !game.gameInMotion || game.gameOver {
+            if !game.gameCreated || game.gameOver {
                 MainMenuView()
-            } else {
-                AlienSwarmView()
-                BulletsView()
+            } else if game.gameCreated && !game.gameOver {
+                if game.gameInMotion {
+                    AlienSwarmView()
+                    BulletsView()
+                } else {
+                    LevelView()
+                }
                 SpaceshipView()
                 GameplayInformationView()
             }

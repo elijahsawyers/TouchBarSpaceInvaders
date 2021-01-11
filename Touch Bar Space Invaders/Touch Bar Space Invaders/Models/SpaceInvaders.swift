@@ -14,6 +14,9 @@ struct SpaceInvaders {
     /// Current score of the game.
     private(set) var score = 0
     
+    /// Current level of the game.
+    private(set) var level = 1
+    
     /// Whether or not all spaceship lives have been used up.
     private(set) var gameOver = false {
         didSet {
@@ -25,6 +28,9 @@ struct SpaceInvaders {
     
     /// Whether or not the game is currently being played.
     private(set) var gameInMotion = false
+    
+    /// Whether or not a new game was created.
+    private(set) var gameCreated = false
     
     /// Barricades in gameplay.
     private(set) var barricades: [Barricade] = {
@@ -69,79 +75,89 @@ struct SpaceInvaders {
         y: Double(GameWindowHeight - GameplayInformationHeight - SpaceshipHeight/2)
     )
     
+    /// The time when the current level was started.
+    var levelStartTime: Date? = Date()
+
     /// Runs the next iteration of  the game loop.
     mutating func loop() {
-        gameInMotion = true
-        
-        // Update each bullet's position.
-        if let bullet = spaceship.bullets.first, bullet.y < 0 - Double(BulletSize.height) {
-            spaceship.bullets.removeFirst()
-        }
-        spaceship.bullets.enumerated().forEach { index, _ in
-            spaceship.bullets[index].move(by: Bullet.stride)
-        }
-        if let bullet = Alien.bullets.first, bullet.y < 0 - Double(BulletSize.height) {
-            Alien.bullets.removeFirst()
-        }
-        Alien.bullets.enumerated().forEach { index, _ in
-            Alien.bullets[index].move(by: -Bullet.stride)
-        }
+        gameCreated = true
 
-        // Shoot from aliens.
-        if Alien.canShootBullet {
-            if let indexOfRandomAlienInFront = indicesOfAliensInFront.randomElement() {
-                Alien.bullets.append(Bullet(
-                    x: aliens[indexOfRandomAlienInFront].x,
-                    y: aliens[indexOfRandomAlienInFront].y + Double(AlienSize)
-                ))
-                Alien.timeOfLastBullet = Date()
+        if let levelStartTime = levelStartTime, Date().timeIntervalSince(levelStartTime) > 3 {
+            gameInMotion = true
+            
+            // Update each bullet's position.
+            if let bullet = spaceship.bullets.first, bullet.y < 0 - Double(BulletSize.height) {
+                spaceship.bullets.removeFirst()
             }
-        }
-        
-        // Update each aliens's position.
-        var moveDown = false
-        swarmOffset += Alien.areMovingRight ? Alien.horizontalStride : -Alien.horizontalStride
-        if swarmOffset == 50.0 {
-            Alien.areMovingRight = false
-            moveDown = true
-        } else if swarmOffset == -50.0 {
-            Alien.areMovingRight = true
-            moveDown = true
-        }
-        aliens.enumerated().forEach { index, _ in
-            if moveDown {
-                aliens[index].move(y: Alien.verticalStride)
+            spaceship.bullets.enumerated().forEach { index, _ in
+                spaceship.bullets[index].move(by: Bullet.stride)
             }
-            aliens[index].move(x: Alien.areMovingRight ? Alien.horizontalStride : -Alien.horizontalStride)
-        }
-        
-        // Check if any of the spaceship bullets are touching an alien.
-        spaceship.bullets.enumerated().forEach { bulletIndex, bullet in
-            aliens.enumerated().forEach { alienIndex, alien in
-                if !alien.isDead, madeContact(bullet, with: alien) {
-                    spaceship.bullets.remove(at: bulletIndex)
-                    aliens[alienIndex].isDead = true
-                    score += SpaceInvaders.scoreIncrease
+            if let bullet = Alien.bullets.first, bullet.y < 0 - Double(BulletSize.height) {
+                Alien.bullets.removeFirst()
+            }
+            Alien.bullets.enumerated().forEach { index, _ in
+                Alien.bullets[index].move(by: -Bullet.stride)
+            }
+
+            // Shoot from aliens.
+            if Alien.canShootBullet {
+                if let indexOfRandomAlienInFront = indicesOfAliensInFront.randomElement() {
+                    Alien.bullets.append(Bullet(
+                        x: aliens[indexOfRandomAlienInFront].x,
+                        y: aliens[indexOfRandomAlienInFront].y + Double(AlienSize)
+                    ))
+                    Alien.timeOfLastBullet = Date()
                 }
             }
-        }
-        
-        // Check if any of the alien bullets are touching the ship.
-        Alien.bullets.enumerated().forEach { bulletIndex, bullet in
-            if madeContact(bullet, with: spaceship) {
-                Alien.bullets.remove(at: bulletIndex)
-                if spaceship.heartsRemaining > 0 {
-                    spaceship.heartsRemaining -= 1
-                } else {
-                    gameOver = true
+            
+            // Update each aliens's position.
+            var moveDown = false
+            swarmOffset += Alien.areMovingRight ? Alien.horizontalStride : -Alien.horizontalStride
+            if swarmOffset == 50.0 {
+                Alien.areMovingRight = false
+                moveDown = true
+            } else if swarmOffset == -50.0 {
+                Alien.areMovingRight = true
+                moveDown = true
+            }
+            aliens.enumerated().forEach { index, _ in
+                if moveDown {
+                    aliens[index].move(y: Alien.verticalStride)
+                }
+                aliens[index].move(x: Alien.areMovingRight ? Alien.horizontalStride : -Alien.horizontalStride)
+            }
+            
+            // Check if any of the spaceship bullets are touching an alien.
+            spaceship.bullets.enumerated().forEach { bulletIndex, bullet in
+                aliens.enumerated().forEach { alienIndex, alien in
+                    if !alien.isDead, madeContact(bullet, with: alien) {
+                        spaceship.bullets.remove(at: bulletIndex)
+                        aliens[alienIndex].isDead = true
+                        score += SpaceInvaders.scoreIncrease
+                    }
                 }
             }
-        }
-        
-        // Respawn the aliens, if needed.
-        if allAliensDead {
-            swarmOffset = 0.0
-            aliens = Alien.buildAlienSpawn()
+            
+            // Check if any of the alien bullets are touching the ship.
+            Alien.bullets.enumerated().forEach { bulletIndex, bullet in
+                if madeContact(bullet, with: spaceship) {
+                    Alien.bullets.remove(at: bulletIndex)
+                    if spaceship.heartsRemaining > 1 {
+                        spaceship.heartsRemaining -= 1
+                    } else {
+                        gameOver = true
+                    }
+                }
+            }
+            
+            // Respawn the aliens, if needed.
+            if allAliensDead {
+                swarmOffset = 0.0
+                aliens = Alien.buildAlienSpawn()
+                level += 1
+                gameInMotion = false
+                self.levelStartTime = Date()
+            }
         }
     }
     

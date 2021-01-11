@@ -59,8 +59,16 @@ class TouchBarSpaceInvaders: ObservableObject {
         game.gameInMotion
     }
     
+    var gameCreated: Bool {
+        game.gameCreated
+    }
+    
     var heartsRemaining: Int {
         game.spaceship.heartsRemaining
+    }
+    
+    var level: Int {
+        game.level
     }
     
     var spaceshipBullets: [Bullet] {
