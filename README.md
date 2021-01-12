@@ -1,11 +1,16 @@
 
 <h1 align="center">Touch Bar Space Invaders🛸🚀</h1>
 <p align="center">A remake of the classic Atari game, Space Invaders, that utilizes the MacBook Pro Touch Bar.<p>
+<hr>
 <p align="center">
+  <a href="#demo">Demo</a> |
   <a href="#how-to-use">How To Use</a> |
   <a href="#license">License</a> |
   <a href="#authors">Authors</a>
 </p>
+<hr>
+
+## Demo
 
 TO-DO: add a gif demo file.
 
