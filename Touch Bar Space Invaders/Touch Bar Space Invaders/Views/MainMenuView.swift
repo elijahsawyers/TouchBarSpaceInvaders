@@ -12,30 +12,40 @@ struct MainMenuView: View {
     @State private var title = ""
     @State private var subtitle = ""
     @State private var buttonLabel = ""
+    @State private var menuIsShowing = false
 
     var body: some View {
         VStack {
-            Text(title)
-                .font(titleFont)
-            Text(subtitle)
-                .font(subtitleFont)
-            ZStack {
-                RoundedRectangle(cornerRadius: buttonCornerRadius)
-                    .foregroundColor(buttonColor)
-                Text(buttonLabel)
-                    .font(buttonLabelFont)
-            }
-            .frame(width: buttonFrame.width, height: buttonFrame.height)
-            .onTapGesture {
-                game.newGame()
-            }
-            .onAppear {
-                if game.gameOver {
-                    game.updateHighScore(to: game.score)
+            if menuIsShowing {
+                Text(title)
+                    .font(titleFont)
+                Text(subtitle)
+                    .font(subtitleFont)
+                ZStack {
+                    RoundedRectangle(cornerRadius: buttonCornerRadius)
+                        .foregroundColor(buttonColor)
+                    Text(buttonLabel)
+                        .font(buttonLabelFont)
                 }
-                title = game.gameOver ? "GAME OVER" : "TOUCH BAR SPACE INVADERS"
-                subtitle = game.gameOver ? "SCORE: \(game.score)" : "HIGH SCORE: \(game.highScore)"
-                buttonLabel = game.gameOver ? "New Game" : "Start Game"
+                .frame(width: buttonFrame.width, height: buttonFrame.height)
+                .onTapGesture {
+                    game.newGame()
+                }
+                .onAppear {
+                    if game.gameOver {
+                        game.updateHighScore(to: game.score)
+                    }
+                    title = game.gameOver ? "GAME OVER" : "TOUCH BAR SPACE INVADERS"
+                    subtitle = game.gameOver ? "SCORE: \(game.score)" : "HIGH SCORE: \(game.highScore)"
+                    buttonLabel = game.gameOver ? "New Game" : "Start Game"
+                }
+            }
+        }
+        .animation(Animation.linear(duration: 1.0).delay(1.0))
+        .transition(.opacity)
+        .onAppear {
+            withAnimation {
+                menuIsShowing = true
             }
         }
     }
