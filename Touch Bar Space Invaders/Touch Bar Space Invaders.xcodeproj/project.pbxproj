@@ -28,6 +28,8 @@
 		E78D49E825A557C8003D98A2 /* StarryBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49E725A557C8003D98A2 /* StarryBackgroundView.swift */; };
 		E78D49EB25A65F60003D98A2 /* HeartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49EA25A65F60003D98A2 /* HeartView.swift */; };
 		E78D49EF25A663B6003D98A2 /* GameplayInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78D49EE25A663B6003D98A2 /* GameplayInformationView.swift */; };
+		E7B4102D25B13FF500310E17 /* Shootable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B4102C25B13FF500310E17 /* Shootable.swift */; };
+		E7B4103025B1400600310E17 /* Shooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B4102F25B1400600310E17 /* Shooter.swift */; };
 		E7C5567625ACCD9B0009EAA4 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C5567525ACCD9B0009EAA4 /* LevelView.swift */; };
 		E7F2D13625AB691700081F7E /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F2D13525AB691700081F7E /* MainMenuView.swift */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		E78D49E725A557C8003D98A2 /* StarryBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarryBackgroundView.swift; sourceTree = "<group>"; };
 		E78D49EA25A65F60003D98A2 /* HeartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeartView.swift; sourceTree = "<group>"; };
 		E78D49EE25A663B6003D98A2 /* GameplayInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameplayInformationView.swift; sourceTree = "<group>"; };
+		E7B4102C25B13FF500310E17 /* Shootable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shootable.swift; sourceTree = "<group>"; };
+		E7B4102F25B1400600310E17 /* Shooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shooter.swift; sourceTree = "<group>"; };
 		E7C5567525ACCD9B0009EAA4 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		E7F2D13525AB691700081F7E /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +152,8 @@
 				E748664F25A7993B00E90BA2 /* Bullet.swift */,
 				E78D49DB25A5561E003D98A2 /* Spaceship.swift */,
 				E78D49D625A55593003D98A2 /* SpaceInvaders.swift */,
+				E7B4102C25B13FF500310E17 /* Shootable.swift */,
+				E7B4102F25B1400600310E17 /* Shooter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -234,11 +240,13 @@
 				E78D49E825A557C8003D98A2 /* StarryBackgroundView.swift in Sources */,
 				E7F2D13625AB691700081F7E /* MainMenuView.swift in Sources */,
 				E78D49A925A52365003D98A2 /* TouchBarSpaceInvadersView.swift in Sources */,
+				E7B4102D25B13FF500310E17 /* Shootable.swift in Sources */,
 				E748664725A7969300E90BA2 /* CurrentScoreView.swift in Sources */,
 				E78D49C525A55138003D98A2 /* SpaceshipView.swift in Sources */,
 				E748665425A79A2000E90BA2 /* BulletsView.swift in Sources */,
 				E757181A25A6D3DD00A8E359 /* AlienSwarmView.swift in Sources */,
 				E748663D25A792BA00E90BA2 /* TouchBarSpaceInvaders.swift in Sources */,
+				E7B4103025B1400600310E17 /* Shooter.swift in Sources */,
 				E78D49EB25A65F60003D98A2 /* HeartView.swift in Sources */,
 				E78D49A725A52365003D98A2 /* TouchBarSpaceInvadersApp.swift in Sources */,
 				E78D49E025A55627003D98A2 /* Alien.swift in Sources */,
