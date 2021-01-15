@@ -24,7 +24,10 @@ class TouchBarSpaceInvaders: ObservableObject {
     // MARK: - Intent[s]
     
     func shoot() {
-        game.spaceship.shoot()
+        game.spaceship.shoot(withBarrelAt:
+            game.spaceship.x,
+            game.spaceship.y - Double(SpaceshipHeight)
+        )
     }
     
     func moveSpaceship(by dx: CGFloat) {
@@ -89,10 +92,10 @@ class TouchBarSpaceInvaders: ObservableObject {
     }
     
     var aliens: [Alien] {
-        game.aliens
+        game.alienSwarm.aliens
     }
     
     var alienBullets: [Bullet] {
-        Alien.bullets
+        game.alienSwarm.bullets
     }
 }

@@ -32,8 +32,11 @@ protocol Shooter {
     /// Adds a new bullet to the bullets array.
     mutating func shoot(withBarrelAt x: Double, _ y: Double)
     
-    /// Update each bullet's position.
+    /// Update each bullet's position by `bulletVelocity`.
     mutating func updateBulletPositions()
+    
+    /// Removes a bullet from the bullet array.
+    mutating func bulletMadeContact(_ bullet: Bullet)
 }
 
 /// Default implementations for the `Shooter` protocol.
@@ -54,9 +57,29 @@ extension Shooter {
         if hasReloaded {
             bullets.append(Bullet(
                 x: x,
-                y: y - Double(SpaceshipHeight)
+                y: y
             ))
             dateOfLastBullet = Date()
+        }
+    }
+
+    mutating func updateBulletPositions() {
+        // Remove the first bullet if it's out of gameplay bounds.
+        if let bullet = bullets.first,
+           bullet.y < 0 - Double(BulletSize.height) ||
+           bullet.y > Double(GameWindowHeight) + Double(BulletSize.height) {
+            bullets.removeFirst()
+        }
+        
+        // Otherwise, update each bullet's position.
+        bullets.enumerated().forEach { index, _ in
+            bullets[index].move(by: bulletVelocity)
+        }
+    }
+    
+    mutating func bulletMadeContact(_ bullet: Bullet) {
+        bullets.removeAll { currentBullet in
+            currentBullet.id == bullet.id
         }
     }
 }

@@ -7,12 +7,55 @@
 
 import Foundation
 
-struct Spaceship {
+struct Spaceship: Shooter, Shootable {
+    /// Returns a `Spaceship` at its start position.
+    static var atStartPosition: Spaceship {
+        Spaceship(
+            x: Double(GameWindowWidth/2),
+            y: Double(GameWindowHeight - GameplayInformationHeight - SpaceshipHeight/2)
+        )
+    }
+
+    /// How fast the bullet moves.
+    let bulletVelocity: Double = -10.0
+    
+    /// How fast the spaceship can reload.
+    var reloadTime: TimeInterval = 0.5
+    
+    /// When the last bullet was fired.
+    var dateOfLastBullet: Date?
+    
+    /// Bullets in gameplay.
+    var bullets: [Bullet] = []
+    
     /// Current x-position.
     var x: Double
 
     /// Current y-position.
     var y: Double
+    
+    /// The width of the spaceship.
+    var width = Double(SpaceshipWidth)
+    
+    /// The height of the spaceship.
+    var height = Double(SpaceshipHeight)
+    
+    /// Whether or not the spaceship is dead (all hearts used).
+    var isDead: Bool {
+        get {
+            heartsRemaining != 0
+        }
+        set {
+            if newValue {
+                isDead = false
+            }
+        }
+    }
+
+    /// Amount of lives (a.k.a. hearts) remaining.
+    ///
+    /// - Note: The game starts out with three lives.
+    var heartsRemaining = 3
     
     /// Previous move dx.
     var previousMove: Double?
@@ -23,39 +66,6 @@ struct Spaceship {
             if !isMoving {
                 previousMove = nil
             }
-        }
-    }
-    
-    /// Amount of lives (a.k.a. hearts) remaining.
-    ///
-    /// - Note: The game starts out with three lives.
-    var heartsRemaining = 3
-
-    /// Bullets in gameplay.
-    var bullets: [Bullet] = []
-    
-    /// How many interations it's been since the spaceship has shot a bullet.
-    ///
-    /// - Note: Only allowing spaceship to shoot every half-second.
-    var timeOfLastBullet: Date?
-
-    /// Whether or not enough time has passed for the spaceship to shoot.
-    var canShootBullet: Bool {
-        if let timeOfLastBullet = timeOfLastBullet {
-            let timePassed = Date().timeIntervalSince(timeOfLastBullet)
-            return timePassed >= 0.5
-        }
-        return true
-    }
-    
-    /// Shoot a bullet - appends a new bullet to the bullets array.
-    mutating func shoot() {
-        if canShootBullet {
-            bullets.append(Bullet(
-                x: x,
-                y: y - Double(SpaceshipHeight)
-            ))
-            timeOfLastBullet = Date()
         }
     }
     
