@@ -10,7 +10,7 @@ import Foundation
 let TouchBarWidth: CGFloat = 685
 let TouchBarHeight: CGFloat = 30
 let GameWindowWidth: CGFloat = TouchBarWidth
-let GameWindowHeight: CGFloat = TouchBarWidth * 0.8
+let GameWindowHeight: CGFloat = GameWindowWidth
 let GameplayInformationHeight: CGFloat = 40.0
 let AlienSize: CGFloat = 50.0
 let BulletSize: CGSize = CGSize(width: 5, height: 25)
