@@ -24,7 +24,7 @@ struct AlienSwarmView: View {
             }
         }
         .onAppear {
-            withAnimation(Animation.easeIn(duration: 1.0)) {
+            withAnimation {
                 aliensShowing = true
             }
         }

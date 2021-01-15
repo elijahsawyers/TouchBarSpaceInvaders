@@ -41,7 +41,6 @@ struct MainMenuView: View {
                 }
             }
         }
-        .animation(Animation.linear(duration: 1.0).delay(1.0))
         .transition(.opacity)
         .onAppear {
             withAnimation {
