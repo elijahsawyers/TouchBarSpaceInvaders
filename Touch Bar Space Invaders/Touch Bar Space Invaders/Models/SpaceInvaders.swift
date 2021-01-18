@@ -31,11 +31,9 @@ struct SpaceInvaders {
     
     /// Whether or not a new game was created.
     private(set) var gameCreated = false
-    
+
     /// Barricades in gameplay.
-    private(set) var barricades: [Barricade] = {
-       return []
-    }()
+    private(set) var barricades: [Barricade] = Barricade.row
 
     /// Aliens in gameplay.
     private(set) var alienSwarm = AlienSwarm()
@@ -62,6 +60,18 @@ struct SpaceInvaders {
             
             // Update each aliens's position.
             alienSwarm.move()
+            
+            // Check if any of the bullets have hit a barricade.
+            for index in barricades.indices {
+                if !barricades[index].isFunctioning { continue }
+                if let bullet = barricades[index].isShot(by: alienSwarm) {
+                    alienSwarm.bulletMadeContact(bullet)
+                    barricades[index].hitsRemaining -= 1
+                }
+                if let bullet = barricades[index].isShot(by: spaceship) {
+                    spaceship.bulletMadeContact(bullet)
+                }
+            }
 
             // Check if any of the spaceship bullets are touching an alien.
             if let spaceshipBulletsThatHitAnAlien = alienSwarm.bulletsHittingAnAlien(by: spaceship) {
@@ -77,7 +87,7 @@ struct SpaceInvaders {
                     gameOver = true
                 }
             }
-            
+
             // Respawn the aliens, and progress the level.
             if alienSwarm.allAliensDead { nextLevel() }
         }

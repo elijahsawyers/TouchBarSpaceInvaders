@@ -79,7 +79,7 @@ extension Shooter {
     
     mutating func bulletMadeContact(_ bullet: Bullet) {
         bullets.removeAll { currentBullet in
-            currentBullet.id == bullet.id
+            currentBullet == bullet
         }
     }
 }

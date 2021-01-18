@@ -9,10 +9,13 @@ import Foundation
 
 struct AlienSwarm: Shooter {
     /// How fast the bullet moves.
-    let bulletVelocity: Double = 10.0
+    let bulletVelocity: Double = 5.0
     
     /// When the last bullet was fired.
     var dateOfLastBullet: Date?
+    
+    /// How fast the swarm can shoot.
+    var reloadTime: TimeInterval = 0.5
     
     /// Bullets in gameplay.
     var bullets: [Bullet] = []

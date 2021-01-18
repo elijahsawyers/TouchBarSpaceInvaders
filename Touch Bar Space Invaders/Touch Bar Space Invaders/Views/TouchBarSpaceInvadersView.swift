@@ -17,8 +17,10 @@ struct TouchBarSpaceInvadersView: View {
                 MainMenuView()
             } else if game.gameCreated && !game.gameOver {
                 if game.gameInMotion {
+                    BoundaryView()
                     AlienSwarmView()
                     BulletsView()
+                    BarricadesRowView()
                 } else {
                     LevelView()
                 }

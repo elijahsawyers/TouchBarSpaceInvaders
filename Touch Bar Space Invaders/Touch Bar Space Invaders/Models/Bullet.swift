@@ -7,9 +7,11 @@
 
 import Foundation
 
-struct Bullet: Identifiable {
-    /// How much to move the bullet by on each iteration of the game loop.
-    static let stride: Double = -10.0
+struct Bullet: Identifiable, Equatable {
+    /// Conformance to the `Equatable` protocol.
+    static func ==(_ lhs: Bullet, _ rhs: Bullet) -> Bool {
+        lhs.id == rhs.id
+    }
     
     /// Unique identifier.
     let id = UUID()

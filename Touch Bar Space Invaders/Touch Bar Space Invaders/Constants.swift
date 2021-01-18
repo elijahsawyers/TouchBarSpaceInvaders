@@ -16,3 +16,7 @@ let AlienSize: CGFloat = 50.0
 let BulletSize: CGSize = CGSize(width: 5, height: 25)
 let SpaceshipWidth: CGFloat = 75
 let SpaceshipHeight: CGFloat = 30
+let BarricadeOffset: CGFloat = 150
+let BarricadeWidth: CGFloat = 80
+let BarricadeHeight: CGFloat = 65
+let BoundaryOffset: CGFloat = 225

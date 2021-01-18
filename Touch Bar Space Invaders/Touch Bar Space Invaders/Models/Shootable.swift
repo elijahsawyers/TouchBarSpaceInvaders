@@ -8,19 +8,24 @@
 import Foundation
 
 protocol Shootable {
+    /// Current x-position of the `Shootable` object.
     var x: Double { get }
     
+    /// Current y-position of the `Shootable` object.
     var y: Double { get }
     
+    /// Width of the `Shootable` object.
     var width: Double { get }
     
+    /// Height of the `Shootable` object.
     var height: Double { get }
     
-    mutating func isShot(by shooter: Shooter) -> Bullet?
+    /// Whether or not the `Shootable` object has been shot by the `shooter`.
+    func isShot(by shooter: Shooter) -> Bullet?
 }
 
 extension Shootable {
-    mutating func isShot(by shooter: Shooter) -> Bullet? {
+    func isShot(by shooter: Shooter) -> Bullet? {
         for bullet in shooter.bullets {
             var xInRange = false
             var yInRange = false

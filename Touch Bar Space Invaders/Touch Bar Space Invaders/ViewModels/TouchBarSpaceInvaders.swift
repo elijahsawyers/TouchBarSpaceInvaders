@@ -98,4 +98,8 @@ class TouchBarSpaceInvaders: ObservableObject {
     var alienBullets: [Bullet] {
         game.alienSwarm.bullets
     }
+    
+    var barricades: [Barricade] {
+        game.barricades
+    }
 }
