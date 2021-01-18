@@ -14,7 +14,9 @@
 
 ## Demo
 
-TO-DO: add a gif demo file.
+<p align="center">
+  <img width="750" src="https://github.com/elijahsawyers/TouchBarSpaceInvaders/raw/master/demo.gif"/>
+</p>
 
 ## How To Use
 
@@ -34,7 +36,7 @@ open TouchBarSpaceInvaders/Touch\ Bar\ Space\ Invaders/Touch\ Bar\ Space\ Invade
 
 Once you have the project opened up in Xcode, simply run the application with ```⌘ + R```.
 
-Note: if you have a Mac that doesn't have a Touch Bar, you can bring up the simulator by going to **Window -> Show Touch Bar**. 
+**Note:** if you have a Mac that doesn't have a Touch Bar, you can bring up the simulator by going to **Window -> Show Touch Bar**. 
 
 ## License
 
