@@ -17,20 +17,29 @@ struct Line: Shape {
 }
 
 struct BoundaryView: View {
+    @State private var boundaryIsShowing = false
+
     var body: some View {
         VStack(spacing: 0.0) {
-            HStack {
-                Text(warningLabel)
+            if boundaryIsShowing {
+                HStack {
+                    Text(warningLabel)
+                        .foregroundColor(color)
+                        .padding(textPadding)
+                    Spacer()
+                }
+                Line()
+                    .stroke(style: strokeStyle)
                     .foregroundColor(color)
-                    .padding(textPadding)
-                Spacer()
+                    .frame(height: height)
             }
-            Line()
-                .stroke(style: strokeStyle)
-                .foregroundColor(color)
-                .frame(height: height)
         }
         .position(x: GameWindowWidth / 2, y: GameWindowHeight - BoundaryOffset)
+        .onAppear {
+            withAnimation(.linear(duration: 0.25)) {
+                boundaryIsShowing = true
+            }
+        }
     }
     
     // MARK: - Drawing Constant[s]

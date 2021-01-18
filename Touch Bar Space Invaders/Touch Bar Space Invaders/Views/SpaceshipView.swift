@@ -9,7 +9,8 @@ import SwiftUI
 
 struct SpaceshipView: View {
     @EnvironmentObject private var game: TouchBarSpaceInvaders
-    @State var steadyStateOffset: CGFloat = 0.0
+    @State private var spaceshipIsShowing = false
+    @State private var steadyStateOffset: CGFloat = 0.0
     @GestureState private var gestureStateOffset: CGFloat = 0.0
     private var offset: CGFloat {
         steadyStateOffset + gestureStateOffset
@@ -33,19 +34,26 @@ struct SpaceshipView: View {
     
     var body: some View {
         ZStack {
-            ZStack {
-                Rectangle()
-                    .frame(width: TouchBarWidth, height: TouchBarHeight)
-                    .foregroundColor(.clear)
+            if spaceshipIsShowing {
+                ZStack {
+                    Rectangle()
+                        .frame(width: TouchBarWidth, height: TouchBarHeight)
+                        .foregroundColor(.clear)
+                    Structure()
+                        .offset(x: offset)
+                        .gesture(shipDragGesture)
+                        .animation(spaceshipAnimation)
+                }
+                    .displayedInTouchBar()
                 Structure()
-                    .offset(x: offset)
-                    .gesture(shipDragGesture)
+                    .position(game.spaceshipPosition)
                     .animation(spaceshipAnimation)
             }
-                .displayedInTouchBar()
-            Structure()
-                .position(game.spaceshipPosition)
-                .animation(spaceshipAnimation)
+        }
+        .onAppear {
+            withAnimation(.linear(duration: 1.0)) {
+                spaceshipIsShowing = true
+            }
         }
         .onExitCommand(perform: {
             if game.gameInMotion {
