@@ -64,6 +64,14 @@ struct AlienSwarm: Shooter {
         return indicesOfAliensInFront
     }
     
+    /// Where the y position of the front of the swarm is. (To end the game if aliens cross boundary line.)
+    var yPosOfFrontOfSwarm: Double {
+        if let lastNotDeadAlien = aliens.filter({ !$0.isDead }).last {
+            return lastNotDeadAlien.y + Double(AlienSize) / 2
+        }
+        return 0.0
+    }
+    
     /// Builds a spawn of aliens.
     init() {
         var aliens = [Alien]()

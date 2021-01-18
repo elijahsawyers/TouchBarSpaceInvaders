@@ -20,3 +20,4 @@ let BarricadeOffset: CGFloat = 150
 let BarricadeWidth: CGFloat = 80
 let BarricadeHeight: CGFloat = 65
 let BoundaryOffset: CGFloat = 225
+let BoundaryHeight: CGFloat = 10

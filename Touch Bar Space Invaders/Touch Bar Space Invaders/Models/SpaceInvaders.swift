@@ -61,6 +61,12 @@ struct SpaceInvaders {
             // Update each aliens's position.
             alienSwarm.move()
             
+            // Check if the swarm has crossed the boundary line.
+            if aliensHaveCrossedBoundary {
+                gameOver = true
+                return
+            }
+            
             // Check if any of the bullets have hit a barricade.
             for index in barricades.indices {
                 if !barricades[index].isFunctioning { continue }
@@ -100,5 +106,11 @@ struct SpaceInvaders {
         levelStartTime = Date()
         alienSwarm = AlienSwarm()
         spaceship.bullets = []
+    }
+    
+    /// Whether or not the alien swarm has crossed the boundary.
+    var aliensHaveCrossedBoundary: Bool {
+        alienSwarm.yPosOfFrontOfSwarm >
+        Double(GameWindowHeight - BoundaryOffset + BoundaryHeight)
     }
 }
